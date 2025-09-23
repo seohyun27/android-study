@@ -2,40 +2,64 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:hint="ID"
-            android:inputType="text" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="PW"
-            android:inputType="textPassword" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="ID"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="PW"
+                android:inputType="textPassword" />
+        </LinearLayout>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/confirmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="확인" />
+
 </LinearLayout>
+
+
+
+<!--
+최하단 레이어 : 텍스트 박스 2개를 수직으로 쌓음
+중간 레이어 : 텍스트 박스 레이어와 사진을 수평으로 쌓음
+최상단 레이어 : 중간 레이어와 확인 버튼을 수직으로 쌓음.
+             이때 중간 레이어가 남는 공간을 다 차지. orientation="vertical"로 인해 레이어 안의 내용들은 전부 상단(top)으로 쏠리게 됨
+-->
