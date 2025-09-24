@@ -8,12 +8,28 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
+    <!--
+    3. 최상단 레이어
+    layout_width="match_parent"
+    layout_height="match_parent" : 가로 세로를 모두 부모(전체 스크린) 크기에 맞출 것
+    orientation="vertical" : 내부의 요소들을 수직으로 쌓겠다
+    padding="16dp" : 해당 레이아웃의 안쪽 여백을 모든 방향으로 16만큼 주겠다 (최상단 레이아웃의 경우 화면 가장자리와 실제 내용물 사이의 공간을 의미함)
+    -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
+        <!--
+        2. 중간 레이어
+        layout_height="0dp"
+        layout_weight="1" : 상위 뷰의 전체 높이에에서 다른 요소가 차지하는 공간을 뺀 나머지 공간을 전부 차지하는 코드
+        orientation="horizontal" : 내부의 뷰를 수평으로 쌓겠다
+        해당 레이어가 자신과 동등한 다른 요소를 제외하고 모든 공간을 다 차지하게 됨
+        이것과 별개로 대부분 안드로이드 레이아웃은 별도의 정렬 설정을 하지 않으면 기본적으로 내부의 내용물을 오른쪽 왼쪽 위에서부터 배치하게 된다!!!
+        요소들을 다른 방향으로 쏠리게 하고 싶다면 android:gravity 속성을 사용하면 된다
+        -->
 
         <ImageView
             android:id="@+id/imageView"
@@ -21,13 +37,26 @@
             android:layout_height="120dp"
             android:layout_marginEnd="16dp"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/default_profile" />
+        <!--
+        뷰의 크기를 가로세로 120으로 고정
+        layout_marginEnd="16dp": 뷰의 바깥 여백을 16만큼 준다
+        scaleType="centerCrop" : 가져오려는 이미지의 가로 세로 비율을 유지하면서 뷰의 전체 영역을 채우도록 이미지를 확대해 중앙 부분을 보여준다 (이미지가 잘릴 수 있음)
+        src="@drawable/default_profile" : drawable이라는 리소스 폴더에 있는 default_profile라는 이름의 이미지를 사용
+        -->
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+            <!--
+            1. 최하단 레이어
+            layout_height="wrap_content" : 높이는 내부의 내용물 높이에 맞게 조절
+            layout_width="0dp"
+            layout_weight="1" : 상위 뷰의 전체 가로 너비에서 다른 요소가 차지하는 공간을 뺀 나머지 공간을 전부 차지하는 코드
+            orientation="vertical" : 내부의 뷰를 수직으로 쌓겠다
+            -->
 
             <EditText
                 android:id="@+id/editText1"
@@ -36,6 +65,11 @@
                 android:layout_marginBottom="8dp"
                 android:hint="ID"
                 android:inputType="text" />
+            <!--
+            layout_width="match_parent" : 가로 너비를 부모(LinearLayout)에 맞출 것
+            layout_marginBottom="8dp" : 아래쪽 바깥의 너비를 8만큼 줄 것. 아이디와 비밀번호 사이의 여백을 담당한다
+            hint="ID" : 사용자가 아직 아무것도 입력하지 않았을 대 "ID"라는 글자를 보여줌
+            -->
 
             <EditText
                 android:id="@+id/editText2"
@@ -43,6 +77,9 @@
                 android:layout_height="wrap_content"
                 android:hint="PW"
                 android:inputType="textPassword" />
+            <!--
+            inputType="textPassword" : 사용자가 글자를 입력할 때 마스킹 처리가 되어 비밀번호가 노출되지 않는다
+            -->
         </LinearLayout>
     </LinearLayout>
 
@@ -52,6 +89,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="확인" />
+    <!--
+    가로 세로 모두 컨텐츠의 크기에 맞출 것
+    layout_gravity 코드를 이용해 자기 자신을 부모 레이어에서 중간으로 정렬
+
+    layout_gravity : 자기 자신을 어떻게 정렬할 것인가
+    gravity : 본인 안의 내용물을 어떻게 정렬할 것인가
+    -->
 
 </LinearLayout>
 
@@ -60,6 +104,6 @@
 <!--
 최하단 레이어 : 텍스트 박스 2개를 수직으로 쌓음
 중간 레이어 : 텍스트 박스 레이어와 사진을 수평으로 쌓음
-최상단 레이어 : 중간 레이어와 확인 버튼을 수직으로 쌓음.
-             이때 중간 레이어가 남는 공간을 다 차지. orientation="vertical"로 인해 레이어 안의 내용들은 전부 상단(top)으로 쏠리게 됨
+최상단 레이어 : 중간 레이어와 확인 버튼을 수직으로 쌓음. 이때 중간 레이어가 버튼 이외 남는 공간을 다 차지.
+gravity 설정을 주지 않았음으로 레이어 안의 내용물들은 전부 왼쪽 상단(top)으로 쏠리게 됨
 -->
