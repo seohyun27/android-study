@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal"
+        android:textSize="60dp"/>
+    <!--
+    Chronometer : 안드로이드에서 기본으로 제공하는 간단한 업카운트 타이머(스톱워치) 위젯
+    기능: [00:00]부터 시작해서 시간이 위로 올라가는(Up-counting) 것을 보여준다
+    제어: 코드에서 start() 메서드를 호출하면 시간이 가기 시작하고, stop()을 호출하면 멈춘다
+    setBase() 메서드로 시작 시간을 재설정할 수 있다
+    TextView를 기반으로 만들어졌기 때문에 textSize, textColor 등 텍스트에 관련된 모든 속성을 그대로 사용할 수 있다
+
+    layout_marginTop="100dp" : 상단에서 100만큼 떨어져 있을 것
+    gravity="center_horizontal" : 중간으로 정렬
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <!--
+        layout_marginBottom="70dp" : 하단에서 70dp만큼 떨어져 있을 것
+        gravity="center_horizontal" : 중간으로 정렬
+        -->
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:enabled="false"
+            android:text="Stop"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+        <!--
+        enabled="false" : 멈춤 버튼과 초기화 버튼은 앱의 실행 직후는 기본적으로 비활성화 상태이다
+        전체 로직에서 Start를 눌렀을 때 활성화되도록 코드를 구현한다
+        -->
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:enabled="false"
+            android:text="Reset"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
