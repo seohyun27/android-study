@@ -9,7 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ch8_event.databinding.ActivityMainBindin
+import com.example.ch8_event.databinding.ActivityMainBinding
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
@@ -80,9 +80,10 @@ class MainActivity : AppCompatActivity() {
                 initTime = System.currentTimeMillis()
                 return true // 이벤트 종료
             }
-            return super.onKeyDown(keyCode, event) // 특별히 처리하지 않은 나머지 경우는 모두 원래 시스템의 기본 동작을 따르게 하는 코드
-            // 이 경우 원래의 이벤트 대로 뒤로가기가 실행된다
         }
+
+        return super.onKeyDown(keyCode, event) // 특별히 처리하지 않은 나머지 경우는 모두 원래 시스템의 기본 동작을 따르게 하는 코드
+        // 이 경우 원래의 이벤트 대로 뒤로가기가 실행된다
     }
 
 }
