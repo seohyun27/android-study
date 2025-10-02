@@ -13,4 +13,6 @@ This repository contains code written for the Mobile Programming class(3-2)
 - The project is a **phone dial pad** built with TextViews and ImageViews.
 - An exercise in creating a UI using the **drag-and-drop Visual Editor**.
 
-
+#### 📁 Ch8_Event
+- The project is a simple **stopwatch** application.
+- An exercise in **event handling**, linking UI components (Views) in the XML layout file to the Kotlin logic code(.kts).
